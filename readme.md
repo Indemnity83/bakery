@@ -121,7 +121,7 @@ Once your Bakery environment is provisioned and running, you may want to add add
 
 The following ports are forwarded to your Bakery environment:
 
-SSH: 2222 -> Forwards To 22
-HTTP: 8000 -> Forwards To 80
-MySQL: 33060 -> Forwards To 3306
-Postgres: 54320 -> Forwards To 5432
+    SSH: 2222 -> Forwards To 22
+    HTTP: 8000 -> Forwards To 80
+    MySQL: 33060 -> Forwards To 3306
+    Postgres: 54320 -> Forwards To 5432
