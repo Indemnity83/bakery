@@ -28,6 +28,7 @@ $app->add(new Indemnity83\Bakery\DestroyCommand);
 $app->add(new Indemnity83\Bakery\EditCommand);
 $app->add(new Indemnity83\Bakery\HaltCommand);
 $app->add(new Indemnity83\Bakery\InitCommand);
+$app->add(new Indemnity83\Bakery\ProvisionCommand);
 $app->add(new Indemnity83\Bakery\ResumeCommand);
 $app->add(new Indemnity83\Bakery\UpCommand);
 $app->add(new Indemnity83\Bakery\UpdateCommand);
