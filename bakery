@@ -14,11 +14,11 @@ function bakery_path()
 {
 	if (isset($_SERVER['HOME']))
 	{
-		return $_SERVER['HOME'].'/.homestead';
+		return $_SERVER['HOME'].'/.bakery';
 	}
 	else
 	{
-		return $_SERVER['HOMEDRIVE'].$_SERVER['HOMEPATH'].DIRECTORY_SEPARATOR.'.homestead';
+		return $_SERVER['HOMEDRIVE'].$_SERVER['HOMEPATH'].'.bakery';
 	}
 }
 
