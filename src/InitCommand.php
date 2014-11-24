@@ -1,4 +1,4 @@
-<?php namespace Laravel\Homestead;
+<?php namespace Indmenity83\Bakery;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;
@@ -15,7 +15,7 @@ class InitCommand extends Command {
 	protected function configure()
 	{
 		$this->setName('init')
-                  ->setDescription('Create a stub Homestead.yaml file');
+                  ->setDescription('Create a stub Bakery.yaml file');
 	}
 
 	/**
@@ -27,19 +27,20 @@ class InitCommand extends Command {
 	 */
 	public function execute(InputInterface $input, OutputInterface $output)
 	{
-		if (is_dir(homestead_path()))
+		if (is_dir(bakery_path()))
 		{
-			throw new \InvalidArgumentException("Homestead has already been initialized.");
+			throw new \InvalidArgumentException("Bakery has already been initialized.");
 		}
 
-		mkdir(homestead_path());
+		$output->writeln('<comment>Creating Bakery.yaml file...</comment> <info>✔</info>');
 
-		copy(__DIR__.'/stubs/Homestead.yaml', homestead_path().'/Homestead.yaml');
-		copy(__DIR__.'/stubs/after.sh', homestead_path().'/after.sh');
-		copy(__DIR__.'/stubs/aliases', homestead_path().'/aliases');
+		mkdir(bakery_path());
 
-		$output->writeln('<comment>Creating Homestead.yaml file...</comment> <info>✔</info>');
-		$output->writeln('<comment>Homestead.yaml file created at:</comment> '.homestead_path().'/Homestead.yaml');
+		copy(__DIR__.'/stubs/Bakery.yaml', bakery_path().'/Bakery.yaml');
+		copy(__DIR__.'/stubs/after.sh', bakery_path().'/after.sh');
+		copy(__DIR__.'/stubs/aliases', bakery_path().'/aliases');
+
+		$output->writeln('<comment>Bakery.yaml file created at:</comment> '.bakery_path().'/Bakery.yaml');
 	}
 
 }

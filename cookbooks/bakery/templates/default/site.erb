@@ -1,0 +1,39 @@
+# configuration based on http://www.sitepoint.com/speeding-up-your-cakephp-websites/
+server {
+    listen 80;
+    server_name <%= @server_name %> www.<%= @server_name %>;
+    access_log /var/log/nginx/<%= @server_name %>-access.log;
+    error_log /var/log/nginx/<%= @server_name %>-error.log;
+    root <%= @root %>;
+    index index.php index.html index.htm;
+
+    # serve static files
+    location / {
+        # this serves static files that exists without
+        # running other rewrite tests
+        if (-f $request_filename) {
+            expires 30d;
+            break;
+        }
+        # this sends all-non-existing file or directory requests
+        # to index.php
+        if (!-e $request_filename) {
+            rewrite ^(.+)$ /index.php?q=$1 last;
+        }
+    }
+
+    location ~ .php$ {
+        set $memcached_key '$request_uri';
+        memcached_pass 127.0.0.1:11211;
+        default_type       text/html;
+        error_page 404 405 502 = @no_cache;
+    }
+
+    location @no_cache {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php-fpm-www.sock;
+        fastcgi_index index.php;
+        include fastcgi_params;
+    }
+}
