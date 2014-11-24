@@ -1,6 +1,6 @@
 {
-    "name": "laravel/homestead",
-    "description": "A virtual machine for web artisans.",
+    "name": "indemnity83/bakery",
+    "description": "A delicious CakePHP development environment.",
     "require": {
         "php": ">=5.4",
         "symfony/console": "~2.0",
@@ -11,15 +11,19 @@
         {
             "name": "Taylor Otwell",
             "email": "taylorotwell@gmail.com"
+        },
+        {
+            "name": "Kyle Klaus",
+            "email": "indemnity83@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Laravel\\Homestead\\": "src/"
+            "Indemnity83\\Bakery\\": "src/"
         }
     },
     "bin": [
-        "homestead"
+        "bakery"
     ],
     "minimum-stability": "stable"
 }

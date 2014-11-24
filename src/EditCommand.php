@@ -1,4 +1,4 @@
-<?php namespace Laravel\Homestead;
+<?php namespace Indmenity83\Bakery;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;
@@ -15,7 +15,7 @@ class EditCommand extends Command {
 	protected function configure()
 	{
 		$this->setName('edit')
-                  ->setDescription('Edit the Homestead.yaml file');
+                  ->setDescription('Edit the Bakery.yaml file');
 	}
 
 	/**
@@ -27,7 +27,7 @@ class EditCommand extends Command {
 	 */
 	public function execute(InputInterface $input, OutputInterface $output)
 	{
-		$process = new Process('open ~/.homestead/Homestead.yaml', realpath(__DIR__.'/../'), null, null, null);
+		$process = new Process('open ~/.bakery/Bakery.yaml', realpath(__DIR__.'/../'), null, null, null);
 
 		$process->run(function($type, $line) use ($output)
 		{

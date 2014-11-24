@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+if (file_exists(__DIR__.'/vendor/autoload.php'))
+{
+	require __DIR__.'/vendor/autoload.php';
+}
+else
+{
+	require __DIR__.'/../../autoload.php';
+}
+
+function bakery_path()
+{
+	return $_SERVER['HOME'].'/.bakery';
+}
+
+$app = new Symfony\Component\Console\Application('CakePHP Bakery', '1.0.0');
+
+$app->add(new Indemnity83\Bakery\DestroyCommand);
+$app->add(new Indemnity83\Bakery\EditCommand);
+$app->add(new Indemnity83\Bakery\HaltCommand);
+$app->add(new Indemnity83\Bakery\InitCommand);
+$app->add(new Indemnity83\Bakery\ResumeCommand);
+$app->add(new Indemnity83\Bakery\UpCommand);
+$app->add(new Indemnity83\Bakery\UpdateCommand);
+$app->add(new Indemnity83\Bakery\SshCommand);
+$app->add(new Indemnity83\Bakery\StatusCommand);
+$app->add(new Indemnity83\Bakery\SuspendCommand);
+
+$app->run();

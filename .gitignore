@@ -1,2 +1,6 @@
 /vendor
 /.vagrant
+/librarian
+
+!/librarian/Cheffile
+!/librarian/Cheffile.lock
