@@ -12,7 +12,14 @@ else
 
 function bakery_path()
 {
-	return $_SERVER['HOME'].'/.bakery';
+	if (isset($_SERVER['HOME']))
+	{
+		return $_SERVER['HOME'].'/.homestead';
+	}
+	else
+	{
+		return $_SERVER['HOMEDRIVE'].$_SERVER['HOMEPATH'].DIRECTORY_SEPARATOR.'.homestead';
+	}
 }
 
 $app = new Symfony\Component\Console\Application('CakePHP Bakery', '1.0.2');
