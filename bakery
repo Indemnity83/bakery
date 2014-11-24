@@ -15,7 +15,7 @@ function bakery_path()
 	return $_SERVER['HOME'].'/.bakery';
 }
 
-$app = new Symfony\Component\Console\Application('CakePHP Bakery', '1.0.0');
+$app = new Symfony\Component\Console\Application('CakePHP Bakery', '1.0.2');
 
 $app->add(new Indemnity83\Bakery\DestroyCommand);
 $app->add(new Indemnity83\Bakery\EditCommand);
