@@ -1,4 +1,4 @@
-<?php namespace Indmenity83\Bakery;
+<?php namespace Indemnity83\Bakery;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;
