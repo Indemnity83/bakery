@@ -1,5 +1,7 @@
 # CakePHP Bakery
 
+[![Latest Stable Version](https://poser.pugx.org/indemnity83/bakery/v/stable.svg)](https://packagist.org/packages/indemnity83/bakery) [![Total Downloads](https://poser.pugx.org/indemnity83/bakery/downloads.svg)](https://packagist.org/packages/indemnity83/bakery) [![Latest Unstable Version](https://poser.pugx.org/indemnity83/bakery/v/unstable.svg)](https://packagist.org/packages/indemnity83/bakery) [![License](https://poser.pugx.org/indemnity83/bakery/license.svg)](https://packagist.org/packages/indemnity83/bakery)
+
 A delicious CakePHP development environment.
 
 ## Introduction
