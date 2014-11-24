@@ -44,7 +44,7 @@ Bakery relies on a couple vagrant plugins to help things run smoothly. Installin
 
 Once VirtualBox and Vagrant have been installed, you are ready to install the Bakery CLI tool using the Composer global command:
 
-    composer global require "indemnity83/bakery=~1.0"
+    composer global require "indemnity83/bakery"
 
 Make sure to place the ~/.composer/vendor/bin directory in your PATH so the bakery executable is found when you run the bakery command in your terminal.
 
