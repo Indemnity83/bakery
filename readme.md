@@ -79,8 +79,8 @@ The folders property of the Bakery.yaml file lists all of the folders you wish t
 Not familiar with Nginx? No problem. The sites property allows you to easily map a "domain" to a folder on your Bakery environment. A sample site configuration is included in the Bakery.yaml file. Again, you may add as many sites to your Bakery environment as necessary. Bakery can serve as a convenient, virtualized environment for every CakePHP project you are working on!
 
     sites:
-    - map: homestead.app
-      to: /home/vagrant/Code/Laravel/public
+    - map: bakery.app
+      to: /home/vagrant/Code/bakery/app/wwwroot
 
 ### Bash Aliases
 
@@ -117,7 +117,7 @@ Note: You should only use these non-standard ports when connecting to the databa
 
 ### Adding Additional Sites
 
-Once your Bakery environment is provisioned and running, you may want to add additional Nginx sites for your CakePHP applications. You can run as many CakePHP installations as you wish on a single Bakery environment. You may simply add the sites to your Bakery.yaml file and then run vagrant provision.
+Once your Bakery environment is provisioned and running, you may want to add additional Nginx sites for your CakePHP applications. You can run as many CakePHP installations as you wish on a single Bakery environment. You may simply add the sites to your Bakery.yaml file and then run bakery provision.
 
 ### Ports
 
