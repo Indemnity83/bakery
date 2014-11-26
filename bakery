@@ -12,15 +12,23 @@ else
 
 function bakery_path()
 {
-	return $_SERVER['HOME'].'/.bakery';
+	if (isset($_SERVER['HOME']))
+	{
+		return $_SERVER['HOME'].'/.bakery';
+	}
+	else
+	{
+		return $_SERVER['HOMEDRIVE'].$_SERVER['HOMEPATH'].'.bakery';
+	}
 }
 
-$app = new Symfony\Component\Console\Application('CakePHP Bakery', '1.0.2');
+$app = new Symfony\Component\Console\Application('Bakery', '1.0.3');
 
 $app->add(new Indemnity83\Bakery\DestroyCommand);
 $app->add(new Indemnity83\Bakery\EditCommand);
 $app->add(new Indemnity83\Bakery\HaltCommand);
 $app->add(new Indemnity83\Bakery\InitCommand);
+$app->add(new Indemnity83\Bakery\ProvisionCommand);
 $app->add(new Indemnity83\Bakery\ResumeCommand);
 $app->add(new Indemnity83\Bakery\UpCommand);
 $app->add(new Indemnity83\Bakery\UpdateCommand);

@@ -5,7 +5,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class EditCommand extends Command {
+class ProvisionCommand extends Command {
 
 	/**
 	 * Configure the command options.
@@ -14,8 +14,8 @@ class EditCommand extends Command {
 	 */
 	protected function configure()
 	{
-		$this->setName('edit')
-                  ->setDescription('Edit the Bakery.yaml file');
+		$this->setName('provision')
+                  ->setDescription('Provisions the Bakery machine');
 	}
 
 	/**
@@ -27,23 +27,12 @@ class EditCommand extends Command {
 	 */
 	public function execute(InputInterface $input, OutputInterface $output)
 	{
-		$command = $this->executable().' '.bakery_path().'/Bakery.yaml';
-		$process = new Process($command, realpath(__DIR__.'/../'), null, null, null);
+		$process = new Process('vagrant provision', realpath(__DIR__.'/../'), null, null, null);
 
 		$process->run(function($type, $line) use ($output)
 		{
 			$output->write($line);
 		});
-	}
-
-	/**
-	 * Find the correct executable to run depending on the OS.
-	 *
-	 * @return string
-	 */
-	protected function executable()
-	{
-		return strpos(strtoupper(PHP_OS), 'WIN') === 0 ? 'start' : 'open';
 	}
 
 }

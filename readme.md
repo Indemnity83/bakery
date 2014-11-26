@@ -1,5 +1,7 @@
 # CakePHP Bakery
 
+[![Latest Stable Version](https://poser.pugx.org/indemnity83/bakery/v/stable.svg)](https://packagist.org/packages/indemnity83/bakery) [![Total Downloads](https://poser.pugx.org/indemnity83/bakery/downloads.svg)](https://packagist.org/packages/indemnity83/bakery) [![Latest Unstable Version](https://poser.pugx.org/indemnity83/bakery/v/unstable.svg)](https://packagist.org/packages/indemnity83/bakery) [![License](https://poser.pugx.org/indemnity83/bakery/license.svg)](https://packagist.org/packages/indemnity83/bakery)
+
 A delicious CakePHP development environment.
 
 ## Introduction
@@ -44,7 +46,7 @@ Bakery relies on a couple vagrant plugins to help things run smoothly. Installin
 
 Once VirtualBox and Vagrant have been installed, you are ready to install the Bakery CLI tool using the Composer global command:
 
-    composer global require "indemnity83/bakery=~1.0"
+    composer global require "indemnity83/bakery"
 
 Make sure to place the ~/.composer/vendor/bin directory in your PATH so the bakery executable is found when you run the bakery command in your terminal.
 
@@ -77,8 +79,8 @@ The folders property of the Bakery.yaml file lists all of the folders you wish t
 Not familiar with Nginx? No problem. The sites property allows you to easily map a "domain" to a folder on your Bakery environment. A sample site configuration is included in the Bakery.yaml file. Again, you may add as many sites to your Bakery environment as necessary. Bakery can serve as a convenient, virtualized environment for every CakePHP project you are working on!
 
     sites:
-    - map: homestead.app
-      to: /home/vagrant/Code/Laravel/public
+    - map: bakery.app
+      to: /home/vagrant/Code/bakery/app/wwwroot
 
 ### Bash Aliases
 
@@ -115,7 +117,7 @@ Note: You should only use these non-standard ports when connecting to the databa
 
 ### Adding Additional Sites
 
-Once your Bakery environment is provisioned and running, you may want to add additional Nginx sites for your CakePHP applications. You can run as many CakePHP installations as you wish on a single Bakery environment. You may simply add the sites to your Bakery.yaml file and then run vagrant provision.
+Once your Bakery environment is provisioned and running, you may want to add additional Nginx sites for your CakePHP applications. You can run as many CakePHP installations as you wish on a single Bakery environment. You may simply add the sites to your Bakery.yaml file and then run bakery provision.
 
 ### Ports
 
