@@ -52,6 +52,30 @@ node['databases'].each do |database|
     password 'secret'
     action :grant
   end
+
+  mysql_database "test_#{database}" do
+    connection mysql_connection_info
+    action :create
+  end
+
+  mysql_database_user 'bakery' do
+    connection mysql_connection_info
+    database_name "test_#{database}"
+    password 'secret'
+    action :grant
+  end
+
+  postgresql_database "test_#{database}" do
+    connection postgresql_connection_info
+    action :create
+  end
+
+  postgresql_database_user 'bakery' do
+    connection postgresql_connection_info
+    database_name "test_#{database}"
+    password 'secret'
+    action :grant
+  end
 end
 
 # Create All Of The Defined Sites
