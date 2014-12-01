@@ -93,7 +93,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			"nginx" => {"pid" => "/run/nginx.pid"},
 			"php-fpm" => {"pid" => "/run/php5-fpm.pid"},
 			"databases" => settings["databases"] || [],
-			"sites" => settings["sites"] || []
+			"sites" => settings["sites"] || [],
+			"variables" => settings["variables"] || []
 		}
 
 		chef.add_recipe "apt"

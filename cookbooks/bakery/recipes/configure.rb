@@ -87,7 +87,8 @@ node['sites'].each do |site|
     mode 0644
     variables(
       :server_name => site['map'],
-      :root => site['to']
+      :root => site['to'],
+      :vars => site['variables']
     )
   end
 
@@ -95,4 +96,16 @@ node['sites'].each do |site|
     to node['nginx']['dir'] + "/sites-available/" + site['map']
     notifies :restart, "service[nginx]"
   end
+end
+
+# Configure All Of The Server Environment Variables
+template "#{node['php-fpm']['pool_conf_dir']}/vars.conf" do
+  source "vars.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  variables(
+    :vars => node['variables']
+  )
+  notifies :restart, "service[php-fpm]"
 end
