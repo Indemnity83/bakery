@@ -80,7 +80,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			type: folder["type"],
 			owner: "vagrant",
 			group: "www-data",
-			mount_options: ["dmode=777,fmode=666"]
+			mount_options: ["dmode=775,fmode=664"]
 	end
 
 	# Provision The Virtual Machine Using Chef
@@ -92,8 +92,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			"postgresql" => {"password" => {"postgres" => "secret"}},
 			"nginx" => {"pid" => "/run/nginx.pid"},
 			"php-fpm" => {"pid" => "/run/php5-fpm.pid"},
-			"databases" => settings["databases"] | [],
-			"sites" => settings["sites"] | [],
+			"databases" => settings["databases"] || [],
+			"sites" => settings["sites"] || [],
 			"variables" => settings["variables"] || []
 		}
 
