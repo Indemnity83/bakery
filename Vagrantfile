@@ -92,8 +92,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			"postgresql" => {"password" => {"postgres" => "secret"}},
 			"nginx" => {"pid" => "/run/nginx.pid"},
 			"php-fpm" => {"pid" => "/run/php5-fpm.pid"},
-			"databases" => settings["databases"],
-			"sites" => settings["sites"]
+			"databases" => settings["databases"] | [],
+			"sites" => settings["sites"] | [],
+			"variables" => settings["variables"] || []
 		}
 
 		chef.add_recipe "apt"
