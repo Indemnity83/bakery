@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	# Ensure The Latest Version of Chef is Available
 	if Vagrant.has_plugin?("vagrant-omnibus")
-		config.omnibus.chef_version = :latest
+		config.omnibus.chef_version = "11" 
 		config.omnibus.install_url = 'http://www.getchef.com/chef/install.sh'
 	else
 		raise 'Vagrant Plugin "vagrant-omnibus" is not installed!'
