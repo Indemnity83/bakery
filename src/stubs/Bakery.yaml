@@ -15,10 +15,11 @@ folders:
 sites:
     - map: bakery.app
       to: /home/vagrant/Code/Cakephp/app/webroot
+      variables:
+        DEBUG: 2
 
 databases:
     - bakery
 
 variables:
-    - key: APP_ENV
-      value: local
+    APP_ENV: local

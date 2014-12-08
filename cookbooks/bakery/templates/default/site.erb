@@ -35,5 +35,8 @@ server {
         fastcgi_pass unix:/var/run/php-fpm-www.sock;
         fastcgi_index index.php;
         include fastcgi_params;
+        <% @vars.each do |key, value| %>
+        <%= "fastcgi_param #{key} #{value};" %>
+        <% end %>
     }
 }

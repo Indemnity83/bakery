@@ -87,12 +87,32 @@ node['sites'].each do |site|
     mode 0644
     variables(
       :server_name => site['map'],
-      :root => site['to']
+      :root => site['to'],
+      :vars => site['variables'] || []
     )
+    notifies :restart, "service[nginx]"
   end
 
   link node['nginx']['dir'] + "/sites-enabled/" + site['map'] do
     to node['nginx']['dir'] + "/sites-available/" + site['map']
-    notifies :restart, "service[nginx]"
+  end
+end
+
+
+# Configure All Of The Server Environment Variables
+node['variables'].each do |key, value|
+  magic_shell_environment key.to_s do
+    value value.to_s
+  end
+end
+
+# Install PHP Mods
+%w(mcrypt mysql).each do |mod|
+  apt_package "php5-#{mod}" do
+    action :install
+  end
+
+  execute "php5enmod" do
+    command "php5enmod #{mod}"
   end
 end

@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	# Ensure The Latest Version of Chef is Available
 	if Vagrant.has_plugin?("vagrant-omnibus")
-		config.omnibus.chef_version = :latest
+		config.omnibus.chef_version = "11.16.4"
 		config.omnibus.install_url = 'http://www.getchef.com/chef/install.sh'
 	else
 		raise 'Vagrant Plugin "vagrant-omnibus" is not installed!'
@@ -93,12 +93,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			"nginx" => {"pid" => "/run/nginx.pid"},
 			"php-fpm" => {"pid" => "/run/php5-fpm.pid"},
 			"databases" => settings["databases"] || [],
-			"sites" => settings["sites"] || []
+			"sites" => settings["sites"] || [],
+			"variables" => settings["variables"] || []
 		}
 
 		chef.add_recipe "apt"
 		chef.add_recipe "php"
-		chef.add_recipe "php-mods::mcrypt"
 		chef.add_recipe "php-fpm"
 		chef.add_recipe "nginx"
 		chef.add_recipe "mysql::server"
