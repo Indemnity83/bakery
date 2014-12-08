@@ -88,7 +88,7 @@ node['sites'].each do |site|
     variables(
       :server_name => site['map'],
       :root => site['to'],
-      :vars => site['variables']
+      :vars => site['variables'] || []
     )
   end
 
