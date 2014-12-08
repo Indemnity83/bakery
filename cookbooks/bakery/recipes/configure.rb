@@ -90,11 +90,11 @@ node['sites'].each do |site|
       :root => site['to'],
       :vars => site['variables'] || []
     )
+    notifies :restart, "service[nginx]"
   end
 
   link node['nginx']['dir'] + "/sites-enabled/" + site['map'] do
     to node['nginx']['dir'] + "/sites-available/" + site['map']
-    notifies :restart, "service[nginx]"
   end
 end
 
