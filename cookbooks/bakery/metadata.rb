@@ -7,6 +7,7 @@ description      'Sets up Bakery sites and databases'
 recipe 'configure', 'Configures Bakery'
 
 depends 'database'
+depends 'magic_shell'
 
 %w(ubuntu).each do |os|
   supports os

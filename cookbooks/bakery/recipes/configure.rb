@@ -98,14 +98,10 @@ node['sites'].each do |site|
   end
 end
 
+
 # Configure All Of The Server Environment Variables
-template "#{node['php-fpm']['pool_conf_dir']}/vars.conf" do
-  source "vars.erb"
-  owner "root"
-  group "root"
-  mode 0644
-  variables(
-    :vars => node['variables']
-  )
-  notifies :restart, "service[php-fpm]"
+node['variables'].each do |key, value|
+  magic_shell_environment key.to_s do
+    value value.to_s
+  end
 end
