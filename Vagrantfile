@@ -99,7 +99,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 		chef.add_recipe "apt"
 		chef.add_recipe "php"
-		chef.add_recipe "php-mods::mcrypt"
 		chef.add_recipe "php-fpm"
 		chef.add_recipe "nginx"
 		chef.add_recipe "mysql::server"

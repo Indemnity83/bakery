@@ -105,3 +105,14 @@ node['variables'].each do |key, value|
     value value.to_s
   end
 end
+
+# Install PHP Mods
+%w(mcrypt mysql).each do |mod|
+  apt_package "php5-#{mod}" do
+    action :install
+  end
+
+  execute "php5enmod" do
+    command "php5enmod #{mod}"
+  end
+end
